@@ -1,8 +1,7 @@
 Werkzeug
 Flask
 numpy
-Keras
+fastai
 gevent
 pillow
 h5py
-tensorflow
