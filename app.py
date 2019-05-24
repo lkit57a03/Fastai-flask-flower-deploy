@@ -37,8 +37,10 @@ model = load_learner(MODEL_PATH)
 
 
 def model_predict(img_path, model):
-    preds = model.predict(img_path)
-    return preds
+    path = Path('uploads')
+    img = open_image(path/str(img_path)) # Temporary
+    preds_class, pred_id, output = model.predict(img)
+    return str(preds_class)
 
 
 @app.route('/', methods=['GET'])
@@ -60,15 +62,15 @@ def upload():
         f.save(file_path)
 
         # Make prediction
-        preds = model_predict(file_path, model)
+        preds = model_predict(secure_filename(f.filename), model)
 
         return preds
     return None
 
 
 if __name__ == '__main__':
-    # app.run(port=5002, debug=True)
+    app.run(port=5002, debug=True)
 
     # Serve the app with gevent
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+    # http_server = WSGIServer(('', 5000), app)
+    # http_server.serve_forever()
