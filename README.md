@@ -25,24 +25,24 @@
 
 ## Docker Installation
 
-### Build and run an image for keras-application pretrained model
+### Build and run an image for Fastai-application pretrained model
 ```shell
-$ cd keras-flask-deploy-webapp
-$ docker build -t keras_flask_app .
-$ docker run -d -p 5000:5000 keras_flask_app
+$ cd Fastai-flask-deploy-webapp
+$ docker build -t Fastai_flask_app .
+$ docker run -d -p 5000:5000 Fastai_flask_app
 ```
 
 ### Build and run an image from your model into the containeri.
 After build an image as above, and
 ```shell
-$ docker run -e MODEL_PATH=/mnt/models/your_model.h5  -v volume-name:/mnt/models -p 5000:5000 keras_flask_app
+$ docker run -e MODEL_PATH=/mnt/models/your_model.pkl  -v volume-name:/mnt/models -p 5000:5000 Fastai_flask_app
 ```
 
 ### Pull an built-image from Docker hub
 For your convenience, can just pull the image instead of building it.
 ```shell
-$ docker pull physhik/keras-flask-app:2
-$ docker run -d -p 5000:5000 physhik/keras-flask-app:2
+$ docker pull physhik/Fastai-flask-app:2
+$ docker run -d -p 5000:5000 physhik/Fastai-flask-app:2
 ```
 Open http://localhost:5000 after waiting for a minute to install in the container.
 
@@ -51,7 +51,7 @@ Open http://localhost:5000 after waiting for a minute to install in the containe
 
 ### Clone the repo
 ```shell
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
+$ git clone https://github.com/lkit57a03/Fastai-flask-flower-deploy.git
 ```
 
 ### Install requirements
@@ -77,13 +77,6 @@ Python 2.7 or 3.5+ are supported and tested.
 $ python app.py
 ```
 
-### Play
-
-Open http://localhost:5000 and have fun. :smiley:
-
-<p align="center">
-  <img src="https://s18.postimg.cc/5ekln1vvt/demo2.gif" width="600px" alt="">
-</p>
 
 ------------------
 
@@ -91,16 +84,14 @@ Open http://localhost:5000 and have fun. :smiley:
 
 ### Use your own model
 
-Place your trained `.h5` file saved by `model.save()` under models directory.
-
-Check the [commented code](https://github.com/mtobeiyf/keras-flask-deploy-webapp/blob/master/app.py#L25) in app.py.
+Place your trained `.pkl` file saved by `model.load_learner()` under models directory.
 
 
 ### Use other pre-trained model
 
-See [Keras applications](https://keras.io/applications/) for more available models such as DenseNet, MobilNet, NASNet, etc.
+See [Fastai applications](https://Fastai.io/applications/) for more available models such as DenseNet, MobilNet, NASNet, etc.
 
-Check [this section](https://github.com/mtobeiyf/keras-flask-deploy-webapp/blob/master/app.py#L25) in app.py.
+Check [this section](https://github.com/mtobeiyf/Fastai-flask-deploy-webapp/blob/master/app.py#L25) in app.py.
 
 ### UI Modification
 
@@ -141,9 +132,3 @@ server {
     }
 }
 ```
-
-## More resources
-
-Check Siraj's ["How to Deploy a Keras Model to Production"](https://youtu.be/f6Bf3gl4hWY) video. The corresponding [repo](https://github.com/llSourcell/how_to_deploy_a_keras_model_to_production).
-
-[Building a simple Keras + deep learning REST API](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
