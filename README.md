@@ -89,9 +89,7 @@ Place your trained `.pkl` file saved by `model.load_learner()` under models dire
 
 ### Use other pre-trained model
 
-See [Fastai applications](https://Fastai.io/applications/) for more available models such as DenseNet, MobilNet, NASNet, etc.
-
-Check [this section](https://github.com/mtobeiyf/Fastai-flask-deploy-webapp/blob/master/app.py#L25) in app.py.
+See [Fastai applications](https://Fastai.io/) for more available models such as DenseNet, MobilNet, NASNet, etc.
 
 ### UI Modification
 
